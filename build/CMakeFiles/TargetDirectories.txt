@@ -1,0 +1,3 @@
+/mnt/c/Users/asome/Documents/fall_2024/CptS_223_adv_algs/PA2/build/CMakeFiles/PA2.dir
+/mnt/c/Users/asome/Documents/fall_2024/CptS_223_adv_algs/PA2/build/CMakeFiles/edit_cache.dir
+/mnt/c/Users/asome/Documents/fall_2024/CptS_223_adv_algs/PA2/build/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,1 @@
+/usr/bin/c++  -Wall -g CMakeFiles/PA2.dir/main.cpp.o CMakeFiles/PA2.dir/experimentFunctions.cpp.o -o PA2 
