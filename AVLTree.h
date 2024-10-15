@@ -62,6 +62,8 @@ private:
     bool isBalanced_h(AVLNode * rt);
 
     int height( AVLNode *t );
+
+    bool isBSTutil(AVLNode* rt, AVLNode* min_nod, AVLNode* max_nod);
 };
 
 // constructor
@@ -159,7 +161,7 @@ inline bool AVLTree<Comparable>::contains_h(const Comparable &x, AVLNode *rt)
         return contains_h(x, rt->right);
     }
     else
-        return true //match
+        return true; //match
 
 }
 
@@ -169,7 +171,7 @@ inline bool AVLTree<Comparable>::contains_h(const Comparable &x, AVLNode *rt)
 template<typename Comparable>
 void AVLTree<Comparable>::insert(const Comparable & x) {
 
-   insert_h(x, root , 0)
+   insert_h(x, root , 0);
 }
 
 template <typename Comparable>
@@ -308,8 +310,25 @@ bool AVLTree<Comparable>::isBalanced() const {
 // public isBST
 template <class Comparable>
 bool AVLTree<Comparable>::isBST() const {
-    cout << "TODO: isBST function" << endl;
-    return false;
+    isBSTutil(root,nullptr,nullptr);
+}
+
+template <typename Comparable>
+inline bool AVLTree<Comparable>::isBSTutil(AVLNode *rt, AVLNode* min_nod, AVLNode* max_nod )
+{
+    if(rt == nullptr)
+    {
+        return true;
+    }
+
+    if((min_nod != nullptr && rt->element <= n=min_nod->element) ||
+    (max_nod != nullptr && rt->element >= max_nod->element))
+    {
+        return false;
+    }
+
+    return isBSTutil(rt->left, min_nod, rt) && isBSTutil(rt->right,rt, max_nod);
+
 }
 
 // public treeSize
@@ -356,6 +375,8 @@ inline int AVLTree<Comparable>::height(AVLNode *t)
     else
         return 1 + max( height( t->left ), height( t->right ) );
 }
+
+
 
 // public readRootHeight
 template <typename Comparable>
